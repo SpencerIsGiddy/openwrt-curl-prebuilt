@@ -6,9 +6,14 @@ on:
   repository_dispatch:
     types: build
 
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [dev]
+
 jobs:
   build:
-    if:
+    if: github.event.repository.owner.id == github.event.sender.id
     name: Build ${{ matrix.arch }}-${{ matrix.tag }}
     runs-on: ubuntu-latest
     strategy:
