@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    if: github.event.repository.owner.id == github.event.sender.id
+    if:
     name: Build ${{ matrix.arch }}-${{ matrix.tag }}
     runs-on: ubuntu-latest
     strategy:
